@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!-- Begin Test here -->
+<suite name="Suite" parallel="false" >
+	<test name="testcase.CreateEmployee">
+		<classes>
+			<class name="testcase.CreateEmployee" />
+		</classes>
+	</test>
+
+	<listeners>
+		<listener class-name="utils.ExtentReporterNG"></listener>
+	</listeners>
+
+</suite>
