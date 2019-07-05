@@ -1,20 +1,18 @@
 package testcase;
 
 import data.dataProvider;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 import org.testng.ITest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import requestbodyinitiator.CreateEmp;
+import raw.Employee;
 
 import java.lang.reflect.Method;
 
 public class CreateEmployee extends TestBase  implements ITest {
 
-
+    Employee employee = new Employee();
     private ThreadLocal<String> testName = new ThreadLocal<>();
 
     @BeforeMethod
@@ -29,17 +27,7 @@ public class CreateEmployee extends TestBase  implements ITest {
 
     @Test(dataProvider = "createEmp", dataProviderClass = dataProvider.class)
     public void createEmployee(String testcaseID, String testDesc, String name, String sal, String age) {
-        RequestSpecification request = RestAssured.given();
-        CreateEmp jsonBody = new CreateEmp()
-                .setName(name)
-                .setSalary(sal)
-                .setAge(age);
-        Response response = request.body(jsonBody)
-                .header("Content-Type", "application/json")
-                .when()
-                .log().all()
-                .post("/v1/create");
-
+        Response response = employee.createEmployee(name, sal, age);
         int statusCode = response.getStatusCode();
         Assert.assertEquals(statusCode, 200);
         System.out.println(response.getBody().asString());

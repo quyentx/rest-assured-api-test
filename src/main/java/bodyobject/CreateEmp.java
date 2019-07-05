@@ -1,4 +1,4 @@
-package requestbodyinitiator;
+package bodyobject;
 
 public class CreateEmp {
 
