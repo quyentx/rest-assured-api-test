@@ -13,4 +13,12 @@ public class dataProvider {
                 {"TC_002", "invalid information", randomString(6)+" "+ randomString(8), "120000", "30"}
         };
     }
+
+    @DataProvider(name="updateEmp")
+    public Object[][] updateEmp(){
+        return new Object[][]{
+                {"TC_003", "valid information", randomString(6)+" "+ randomString(8), "100000", "26"},
+                {"TC_004", "invalid information", randomString(6)+" "+ randomString(8), "120000", "30"}
+        };
+    }
 }

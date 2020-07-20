@@ -8,8 +8,15 @@
 		</classes>
 	</test>
 
+	<test name="testcase.UpdateEmployee">
+		<classes>
+			<class name="testcase.UpdateEmployee" />
+		</classes>
+	</test>
+
 	<listeners>
-		<listener class-name="utils.ExtentReporterNG"></listener>
+		<listener class-name="utils.ExtentReporterNG"/>
+		<listener class-name="utils.TestFilterListener"/>
 	</listeners>
 
 </suite>
